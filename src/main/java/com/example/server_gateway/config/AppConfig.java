@@ -24,20 +24,20 @@ public class AppConfig {
         return WebClient.builder();
     }
 
-    @Bean
-    public WebFilter corsFilter() {
-        return (ServerWebExchange ctx, WebFilterChain chain) -> {
-            ServerHttpRequest request = ctx.getRequest();
-            if (request.getMethod() == HttpMethod.OPTIONS) {
-                ServerHttpResponse response = ctx.getResponse();
-                response.getHeaders().add("Access-Control-Allow-Origin", "*"); // Or your frontend URL
-                response.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-                response.getHeaders().add("Access-Control-Allow-Headers", "Authorization, Content-Type");
-                response.getHeaders().add("Access-Control-Allow-Credentials", "true");
-                response.setStatusCode(HttpStatus.OK);
-                return response.setComplete();
-            }
-            return chain.filter(ctx);
-        };
-    }
+//    @Bean
+//    public WebFilter corsFilter() {
+//        return (ServerWebExchange ctx, WebFilterChain chain) -> {
+//            ServerHttpRequest request = ctx.getRequest();
+//            if (request.getMethod() == HttpMethod.OPTIONS) {
+//                ServerHttpResponse response = ctx.getResponse();
+//                response.getHeaders().add("Access-Control-Allow-Origin", "*"); // Or your frontend URL
+//                response.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//                response.getHeaders().add("Access-Control-Allow-Headers", "Authorization, Content-Type");
+//                response.getHeaders().add("Access-Control-Allow-Credentials", "true");
+//                response.setStatusCode(HttpStatus.OK);
+//                return response.setComplete();
+//            }
+//            return chain.filter(ctx);
+//        };
+  //  }
 }
